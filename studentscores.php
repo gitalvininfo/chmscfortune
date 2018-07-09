@@ -93,14 +93,24 @@ require 'connection.php';
 
                         </div>
                         <div class="col-md-3">
+                            <?php
+    require 'connection.php';
+                                        $query = $conn->query("select * from `test`, `enrollstudent` where enrollstudent.name = test.name  && enrollstudent.lrn = '$_SESSION[lrn]' && test.subject_name = '$_GET[subject_name]' && test.written_num = 'igrade'") or die(mysqli_error());
+                                        $fetch = $query->fetch_array();
+                                        $igrade = $fetch['score'];
+
+                                        $query2 = $conn->query("select * from `test`, `enrollstudent` where enrollstudent.name = test.name  && enrollstudent.lrn = '$_SESSION[lrn]' && test.subject_name = '$_GET[subject_name]' && test.written_num = 'qgrade'") or die(mysqli_error());
+                                        $fetch2 = $query2->fetch_array();
+                                        $qgrade = $fetch2['score'];
+
+                            ?> 
                             <div class="widget widget-info widget-item-icon">
                                 <div class="widget-item-left">
                                     <span class="fa fa-bars"></span>
                                 </div>
                                 <div class="widget-data">
-
                                     <div class="widget-int num-count">
-                                        100
+                                        <?php echo $igrade;?>
                                     </div>
                                     <div class="widget-title">Initial</div>
                                     <div class="widget-subtitle">Grade</div>
@@ -118,7 +128,7 @@ require 'connection.php';
                                 <div class="widget-data">
 
                                     <div class="widget-int num-count">
-                                        100
+                                        <?php echo $qgrade;?>
                                     </div>
                                     <div class="widget-title">Quarter</div>
                                     <div class="widget-subtitle">Grade</div>
