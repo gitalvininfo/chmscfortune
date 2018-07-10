@@ -75,6 +75,17 @@ require 'connection.php';
                                                     <option value="Female">Female</option>
                                                 </select>
                                             </div>
+                                        </div><br><br>
+                                        <label>Status</label>
+                                        <div class="form-group ">
+                                            <div class="col-md-12 col-xs-12">
+                                                <select class="form-control select" name="status" required>
+                                                    <option disabled selected>Choose</option>
+                                                    <option value="Regular">Regular</option>
+                                                    <option value="Transferee">Transferee</option>
+                                                    <option value="Returnee">Returnee</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="panel-footer">
@@ -90,7 +101,7 @@ require 'connection.php';
                                 <h3 class="panel-title">List of Students</h3>
                                 <div class="btn-group pull-right">
                                     <div class="pull-left">
-                                        <a href="viewclassrecords.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>" class="btn btn-primary btn-md">Go to Class Record</a>
+                                        <a href="viewclassrecords.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>&grading=1" class="btn btn-primary btn-md">Go to Class Record</a>
                                     </div>
                                 </div>
                             </div>
@@ -103,6 +114,7 @@ require 'connection.php';
                                             <th>Gender</th>
                                             <th>Grade</th>
                                             <th>Section</th>
+                                            <th>Status</th>
                                             <th><center>Action</center></th>
                                         </tr>
                                     </thead>
@@ -121,6 +133,7 @@ require 'connection.php';
                                             <td><?php echo $fetch['gender']?></td>
                                             <td><?php echo $fetch['grade']?></td>
                                             <td><?php echo $fetch['section']?></td>
+                                            <td><?php echo $fetch['status']?></td>
                                             <td><center>
                                                 <a href="#updatestudent<?php echo $fetch['enroll_id'];?>" data-target="#updatestudent<?php echo $fetch['enroll_id'];?>" data-toggle="modal" class="btn btn-primary btn-sm">Edit</a>
                                                 <a href="#deletestudent<?php echo $fetch['enroll_id'];?>" data-target="#deletestudent<?php echo $fetch['enroll_id'];?>" data-toggle="modal" class="btn btn-danger btn-sm">Delete</a></center></center>
@@ -204,6 +217,7 @@ while($fetch = $query->fetch_array()){
                                 <input type="hidden" class="form-control" name="enroll_id" value="<?php echo $fetch['enroll_id'];?>" required>
                                 <input type="hidden" class="form-control" name="teacher_id" value="<?php echo $fetch['teacher_id'];?>" required>
                                 <input type="hidden" class="form-control" name="subject_name" value="<?php echo $fetch['subject_name'];?>" required>
+                                <input type="hidden" class="form-control" name="school_year" value="<?php echo $_GET['school_year'];?>" required>
                                 <input data-toggle="tooltip" data-placement="bottom" title="LRN" type="text" class="form-control" name="lrn" value="<?php echo $fetch['lrn']?>" required/>
                             </div>
 
@@ -219,6 +233,17 @@ while($fetch = $query->fetch_array()){
                                         <option value="<?php echo $fetch['gender']?>"><?php echo $fetch['gender']?></option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <label>Status</label>
+                            <div class="form-group ">
+                                <div class="col-md-12 col-xs-12">
+                                    <select class="form-control select" name="status" required>
+                                        <option value="<?php echo $fetch['status']?>"><?php echo $fetch['status']?></option>
+                                        <option value="Regular">Regular</option>
+                                        <option value="Transferee">Transferee</option>
+                                        <option value="Returnee">Returnee</option>
                                     </select>
                                 </div>
                             </div>

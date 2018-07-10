@@ -44,12 +44,16 @@ require 'connection.php';
                                         <div class="profile-data-title" style="font-size:20px;">District of Valladolid</div>
                                     </div>
                                 </div>                                
-                                <div class="panel-body">                                    
+                                <div class="panel-body">   
+                                    <?php 
+    $query = $conn->query("SELECT COUNT(*) as total FROM `tblteacher`") or die(mysqli_error());
+            $find = $query->fetch_array();
+                                    ?>                                 
                                     <div class="contact-info" style="font-size:18px;">
                                         <p><small>School ID</small><br/>117422</p><hr>
                                         <p><small>Location</small><br/>Brgy. Alijis, Valladolid, Negros Occidental, Philippines</p><hr>
                                         <p><small>Brgy. Catchment Areas</small><br/>Brgy. Alijis, Brgy. Bayabas and Brgy. Doldol</p><hr>
-                                        <p><small>No. of Teacherss</small><br/>18 Regular Teachers | 3 Volunteers</p><hr>
+                                        <p><small>No. of Teacherss</small><br/><?php echo $find['total']?> Regular Teachers | 3 Volunteers</p><hr>
                                         <p><small>Lot Owned by</small><br/>Municipality of Valladolid</p>                                     
                                     </div>
                                 </div>                                

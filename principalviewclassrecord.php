@@ -10,7 +10,7 @@ require('require/grades_query.php');
 $subject = $_GET['subject_name'];
 $teacherid = $_GET['id'];
 $schoolyear = $_GET['school_year'];
-$grading = $_GET['grading'];
+
 
 $gender = 'Male';
 $gender2 = 'Female';

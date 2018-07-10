@@ -81,6 +81,7 @@ require 'connection.php';
                                                 <th>Grade</th>
                                                 <th>Section</th>
                                                 <th>School Year</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -95,6 +96,9 @@ require 'connection.php';
                                                 <td><center><?php echo $fetch['grade']?></center></td>
                                                 <td><center><?php echo $fetch['section']?></center></td>
                                                 <td><center><?php echo $fetch['sy']?></center></td>
+                                                <td><center>
+                                                    <a href="principalviewlist.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>" class="btn btn-primary btn-sm">Class Record</a></center>
+                                                </td>
                                             </tr>
                                             <?php
                                             }
