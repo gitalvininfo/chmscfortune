@@ -101,6 +101,7 @@ require 'connection.php';
                                 <h3 class="panel-title">List of Students</h3>
                                 <div class="btn-group pull-right">
                                     <div class="pull-left">
+                                        <button class="btn btn-primary" data-toggle="modal" data-target="#retrieve">Retrieve Student</button>
                                         <a href="viewclassrecords.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>&grading=1" class="btn btn-primary btn-md">Go to Class Record</a>
                                     </div>
                                 </div>
@@ -121,7 +122,7 @@ require 'connection.php';
                                     <tbody>
                                         <?php
     require 'connection.php';
-                                           $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_SESSION[user_id]' && `subject_name` = '$_GET[subject_name]' order by `name` ASC") or die(mysqli_error());
+                                           $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_SESSION[user_id]' && `subject_name` = '$_GET[subject_name]' && `sy` = '$_GET[school_year]'order by `name` ASC") or die(mysqli_error());
                                            while($fetch = $query->fetch_array()){
                                                $teacher_id = $fetch['teacher_id'];
                                                $subject_name = $fetch['subject_name'];
@@ -157,9 +158,63 @@ require 'connection.php';
 <!-- END PAGE CONTENT -->
 </div>
 
+<?php
+require 'connection.php';
+$query = $conn->query("SELECT * FROM `sub_assign` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]' && `sy` = '$_GET[school_year]'") or die(mysqli_error());
+$fetch = $query->fetch_array();    
+?>
+<!-- Add Retrieve -->
+<div class="modal fade" id="retrieve" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="defModalHead">Add Old Student to Class</h4>
+            </div>
+            <form role="form" id="principalform" class="form-horizontal" action="crud/retrievestudent.php" method="post" onsubmit="return confirm('Are you sure you want to student?');" >
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label>Student Name</label>
+                            <input type="hidden" class="form-control" name="grade" value="<?php echo $fetch['grade'];?>" required>
+                            <input type="hidden" class="form-control" name="section" value="<?php echo $fetch['section'];?>" required>
+                            <input type="hidden" class="form-control" name="teacher_id" value="<?php echo $fetch['teacher_id'];?>" required>
+                            <input type="hidden" class="form-control" name="school_year" value="<?php echo $_GET['school_year'];?>" required>
+                            <input type="hidden" class="form-control" name="subject_name" value="<?php echo $fetch['subject_name'];?>" required>
+                            <select class="form-control select" data-live-search="true" name="name" required>
+                                <option disabled selected>Search for Student Name</option>
+                                <?php
+                                $conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
+                                $query = $conn->query("SELECT * FROM `enrollstudent` group by `name`") or die(mysqli_error());
+
+                                while($fetch = $query->fetch_array()){
 
 
-<!-- Delete Teacher-->
+                                ?>
+                                <option value="<?php echo $fetch['name'];?>"><?php echo $fetch['name']?></option>
+
+                                <?php
+                                }
+                                ?> 
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" name="retrieve"><span class="fa fa-check"></span>Save</button> 
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>                        
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Retrieve -->
+
+
+
+<!-- Delete Student-->
 <?php
 $conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
 $query = $conn->query("SELECT * FROM `enrollstudent`") or die(mysqli_error());
@@ -170,7 +225,7 @@ while($fetch = $query->fetch_array()){
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="smallModalHead">Delete Teacher</h4>
+                <h4 class="modal-title" id="smallModalHead">Delete Student</h4>
             </div>
             <form role="form" class="form-horizontal" action="crud/deletestudent.php" method="post">
                 <div class="modal-body">
@@ -192,10 +247,10 @@ while($fetch = $query->fetch_array()){
                                      }
 $conn->close();
 ?> 
-<!-- End Delete Teacher -->
+<!-- End Student Teacher -->
 
 
-<!-- Edit Teacher -->
+<!-- Edit Student -->
 <?php
 $conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
 $query = $conn->query("SELECT * FROM `enrollstudent`") or die(mysqli_error());
@@ -263,7 +318,7 @@ while($fetch = $query->fetch_array()){
                                      }
 $conn->close();
 ?> 
-<!-- End Edit Teacher-->
+<!-- End Edit Student-->
 
 <?php require 'require/logoutnotify.php'?>
 <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>

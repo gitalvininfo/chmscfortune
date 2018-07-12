@@ -30,7 +30,8 @@ require 'connection.php';
                     </li> 
                 </ul>
                 <ul class="breadcrumb">
-                    <li><a href="hometeacher.php">Home</a></li>
+                    <li><a href="hometeacher.php">Subject Assignment</a></li>
+                    <li>Assign</li>
                     <li class="active">Class Record</li>
                 </ul>
 
@@ -66,7 +67,7 @@ require 'connection.php';
                                         <tbody>
                                             <?php
     require 'connection.php';
-                                               $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]' && `sy` = '$_GET[school_year]'") or die(mysqli_error());
+                                               $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]'") or die(mysqli_error());
                                                while($fetch = $query->fetch_array()){
                                                    $teacher_id = $fetch['teacher_id'];
                                                    $subject_name = $fetch['subject_name'];

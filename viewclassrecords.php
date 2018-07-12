@@ -4,64 +4,64 @@
     }
 </style>
 <?php 
-
+$grading = 1;
 
 require('require/grades_query.php');
 $subject = $_GET['subject_name'];
 $teacherid = $_GET['id'];
 $schoolyear = $_GET['school_year'];
-$grading = $_GET['grading'];
+
 
 $gender = 'Male';
 $gender2 = 'Female';
 
-$W1 = getW($schoolyear, $teacherid, $subject,$gender,'w1');
-$W2 = getW($schoolyear, $teacherid, $subject,$gender,'w2');
-$W3 = getW($schoolyear, $teacherid, $subject,$gender,'w3');
-$W4 = getW($schoolyear, $teacherid, $subject,$gender,'w4');
-$W5 = getW($schoolyear, $teacherid, $subject,$gender,'w5');
-$W6 = getW($schoolyear, $teacherid, $subject,$gender,'w6');
-$W7 = getW($schoolyear, $teacherid, $subject,$gender,'w7');
-$W8 = getW($schoolyear, $teacherid, $subject,$gender,'w8');
-$W9 = getW($schoolyear, $teacherid, $subject,$gender,'w9');
-$W10 = getW($schoolyear, $teacherid, $subject,$gender,'w10');
+$W1 = getW($schoolyear, $teacherid, $subject,$gender,'w1',$grading);
+$W2 = getW($schoolyear, $teacherid, $subject,$gender,'w2',$grading);
+$W3 = getW($schoolyear, $teacherid, $subject,$gender,'w3',$grading);
+$W4 = getW($schoolyear, $teacherid, $subject,$gender,'w4',$grading);
+$W5 = getW($schoolyear, $teacherid, $subject,$gender,'w5',$grading);
+$W6 = getW($schoolyear, $teacherid, $subject,$gender,'w6',$grading);
+$W7 = getW($schoolyear, $teacherid, $subject,$gender,'w7',$grading);
+$W8 = getW($schoolyear, $teacherid, $subject,$gender,'w8',$grading);
+$W9 = getW($schoolyear, $teacherid, $subject,$gender,'w9',$grading);
+$W10 = getW($schoolyear, $teacherid, $subject,$gender,'w10',$grading);
 
-$GW1 = getW($schoolyear, $teacherid, $subject,$gender2,'gw1');
-$GW2 = getW($schoolyear, $teacherid, $subject,$gender2,'gw2');
-$GW3 = getW($schoolyear, $teacherid, $subject,$gender2,'gw3');
-$GW4 = getW($schoolyear, $teacherid, $subject,$gender2,'gw4');
-$GW5 = getW($schoolyear, $teacherid, $subject,$gender2,'gw5');
-$GW6 = getW($schoolyear, $teacherid, $subject,$gender2,'gw6');
-$GW7 = getW($schoolyear, $teacherid, $subject,$gender2,'gw7');
-$GW8 = getW($schoolyear, $teacherid, $subject,$gender2,'gw8');
-$GW9 = getW($schoolyear, $teacherid, $subject,$gender2,'gw9');
-$GW10 = getW($schoolyear, $teacherid, $subject,$gender2,'gw10');
+$GW1 = getW($schoolyear, $teacherid, $subject,$gender2,'gw1',$grading);
+$GW2 = getW($schoolyear, $teacherid, $subject,$gender2,'gw2',$grading);
+$GW3 = getW($schoolyear, $teacherid, $subject,$gender2,'gw3',$grading);
+$GW4 = getW($schoolyear, $teacherid, $subject,$gender2,'gw4',$grading);
+$GW5 = getW($schoolyear, $teacherid, $subject,$gender2,'gw5',$grading);
+$GW6 = getW($schoolyear, $teacherid, $subject,$gender2,'gw6',$grading);
+$GW7 = getW($schoolyear, $teacherid, $subject,$gender2,'gw7',$grading);
+$GW8 = getW($schoolyear, $teacherid, $subject,$gender2,'gw8',$grading);
+$GW9 = getW($schoolyear, $teacherid, $subject,$gender2,'gw9',$grading);
+$GW10 = getW($schoolyear, $teacherid, $subject,$gender2,'gw10',$grading);
 
-$PT1 = getW($schoolyear, $teacherid, $subject,$gender,'pt1');
-$PT2 = getW($schoolyear, $teacherid, $subject,$gender,'pt2');
-$PT3 = getW($schoolyear, $teacherid, $subject,$gender,'pt3');
-$PT4 = getW($schoolyear, $teacherid, $subject,$gender,'pt4');
-$PT5 = getW($schoolyear, $teacherid, $subject,$gender,'pt5');
-$PT6 = getW($schoolyear, $teacherid, $subject,$gender,'pt6');
-$PT7 = getW($schoolyear, $teacherid, $subject,$gender,'pt7');
-$PT8 = getW($schoolyear, $teacherid, $subject,$gender,'pt8');
-$PT9 = getW($schoolyear, $teacherid, $subject,$gender,'pt9');
-$PT10 = getW($schoolyear, $teacherid, $subject,$gender,'pt10');
-$PSQA1 = getW($schoolyear, $teacherid, $subject,$gender,'qa1');
+$PT1 = getW($schoolyear, $teacherid, $subject,$gender,'pt1',$grading);
+$PT2 = getW($schoolyear, $teacherid, $subject,$gender,'pt2',$grading);
+$PT3 = getW($schoolyear, $teacherid, $subject,$gender,'pt3',$grading);
+$PT4 = getW($schoolyear, $teacherid, $subject,$gender,'pt4',$grading);
+$PT5 = getW($schoolyear, $teacherid, $subject,$gender,'pt5',$grading);
+$PT6 = getW($schoolyear, $teacherid, $subject,$gender,'pt6',$grading);
+$PT7 = getW($schoolyear, $teacherid, $subject,$gender,'pt7',$grading);
+$PT8 = getW($schoolyear, $teacherid, $subject,$gender,'pt8',$grading);
+$PT9 = getW($schoolyear, $teacherid, $subject,$gender,'pt9',$grading);
+$PT10 = getW($schoolyear, $teacherid, $subject,$gender,'pt10',$grading);
+$PSQA1 = getW($schoolyear, $teacherid, $subject,$gender,'qa1',$grading);
 
-$GPT1 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt1');
-$GPT2 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt2');
-$GPT3 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt3');
-$GPT4 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt4');
-$GPT5 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt5');
-$GPT6 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt6');
-$GPT7 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt7');
-$GPT8 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt8');
-$GPT9 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt9');
-$GPT10 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt10');
-$GPSQA1 = getW($schoolyear, $teacherid, $subject,$gender2,'gqa1');
+$GPT1 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt1',$grading);
+$GPT2 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt2',$grading);
+$GPT3 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt3',$grading);
+$GPT4 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt4',$grading);
+$GPT5 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt5',$grading);
+$GPT6 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt6',$grading);
+$GPT7 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt7',$grading);
+$GPT8 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt8',$grading);
+$GPT9 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt9',$grading);
+$GPT10 = getW($schoolyear, $teacherid, $subject,$gender2,'gpt10',$grading);
+$GPSQA1 = getW($schoolyear, $teacherid, $subject,$gender2,'gqa1',$grading);
 
-$HPS = gethps($schoolyear, $teacherid, $subject);
+$HPS = gethps($schoolyear, $teacherid, $subject,$grading);
 ?>
 
 <html>
@@ -82,7 +82,7 @@ $HPS = gethps($schoolyear, $teacherid, $subject);
         <h3>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;SCHOOL NAME - ALIJIS ELEMENTARY SCHOOL &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; SCHOOL ID - 117422 &nbsp; &nbsp; &nbsp; &nbsp; SCHOOL YEAR - <?php echo $schoolyear?></h3>
         <h3></h3>
         <button class="print" onclick="javascript:window.print()">Print</button> <hr>
-        <form name="submit" action="crud/saveclassrecord.php?id=<?php echo $teacherid?>&subject_name=<?php echo $subject?>&school_year=<?php echo $schoolyear?>" method="POST">
+        <form name="submit" action="crud/saveclassrecord.php?id=<?php echo $teacherid?>&subject_name=<?php echo $subject?>&school_year=<?php echo $schoolyear?>&grading=<?php echo $grading?>" method="POST">
             <input type="submit" name="submit" value="Submit">
             <hr />
             <table border="1">
@@ -210,6 +210,7 @@ $HPS = gethps($schoolyear, $teacherid, $subject);
                     <input type="hidden" value="<?php echo $fetch['teacher_id']?>" name="teacher_id">
                     <input type="hidden" value="<?php echo $fetch['name']?>" name="name[]">
                     <input type="hidden" value="<?php echo $fetch['subject_name']?>" name="subject_name">
+
                     <td><?php echo $i; $i++;?></td>
                     <td><?php echo $fetch['name']?></td>
 
@@ -242,14 +243,44 @@ $HPS = gethps($schoolyear, $teacherid, $subject);
                     <td><?php echo  number_format((((intval($PT1[$a])+intval($PT2[$a])+intval($PT3[$a])+intval($PT4[$a])+intval($PT5[$a])+intval($PT6[$a])+intval($PT7[$a])+intval($PT8[$a])+intval($PT9[$a])+intval($PT10[$a]))/30*100)/100*60),2) ?> 
                     </td>
                     <td><?php echo "<input style='border:none' type='text' size='1' name='qa1[]' value='$PSQA1[$a]'/>"?></td>
-                    <td><?php echo number_format((intval($PSQA1[$a])/$HPS['psqa']*100),2) ?></td>
-                    <td><?php echo number_format(((intval($PSQA1[$a])/$HPS['psqa']*100)/100*20),2) ?></td>
-                    <td><?php echo number_format((((intval($W1[$a])+intval($W2[$a])+intval($W3[$a])+intval($W4[$a])+intval($W5[$a])+intval($W6[$a])+intval($W7[$a])+intval($W8[$a])+intval($W9[$a])+intval($W10[$a]))/30*100)/100*20),2)+ number_format((((intval($PT1[$a])+intval($PT2[$a])+intval($PT3[$a])+intval($PT4[$a])+intval($PT5[$a])+intval($PT6[$a])+intval($PT7[$a])+intval($PT8[$a])+intval($PT9[$a])+intval($PT10[$a]))/30*100)/100*60),2)+
-                    number_format(((intval($PSQA1[$a])/$HPS['psqa']*100)/100*20),2)
+                    <?php 
+                    if($PSQA1[$a] ==0 && $HPS['psqa'] == 0){
+                        $ps = '';
+                    }else{
+                        $ps =  number_format((intval($PSQA1[$a])/$HPS['psqa']*100),2);
+                    }
+                    ?>
+                    <td><?php echo $ps;?></td>
+                    <?php
+                if($PSQA1[$a] ==0 && $HPS['psqa']==0){
+                    $ws = '';
+                }else{
+                    $ws = number_format(((intval($PSQA1[$a])/$HPS['psqa']*100)/100*20),2);
+                }
+                    ?>
+                    <td><?php echo $ws ?></td>
+                    <?php
+                        if($PSQA1[$a]==0 && $HPS['psqa'] ==0){
+                            $initialgrade = 0;
+                        }else{
+                            $initialgrade = number_format((((intval($W1[$a])+intval($W2[$a])+intval($W3[$a])+intval($W4[$a])+intval($W5[$a])+intval($W6[$a])+intval($W7[$a])+intval($W8[$a])+intval($W9[$a])+intval($W10[$a]))/30*100)/100*20),2)+ number_format((((intval($PT1[$a])+intval($PT2[$a])+intval($PT3[$a])+intval($PT4[$a])+intval($PT5[$a])+intval($PT6[$a])+intval($PT7[$a])+intval($PT8[$a])+intval($PT9[$a])+intval($PT10[$a]))/30*100)/100*60),2)+
+                                number_format(((intval($PSQA1[$a])/$HPS['psqa']*100)/100*20),2);   
+                        }
+                    ?>
+                    <td><?php echo "<input style='border:none' type='text' size='1' name='initialgrade[]' value='$initialgrade'/>"
                         ?></td>
-                    <td><?php 
-                    echo number_format(number_format((((intval($W1[$a])+intval($W2[$a])+intval($W3[$a])+intval($W4[$a])+intval($W5[$a])+intval($W6[$a])+intval($W7[$a])+intval($W8[$a])+intval($W9[$a])+intval($W10[$a]))/30*100)/100*20),2)+ number_format((((intval($PT1[$a])+intval($PT2[$a])+intval($PT3[$a])+intval($PT4[$a])+intval($PT5[$a])+intval($PT6[$a])+intval($PT7[$a])+intval($PT8[$a])+intval($PT9[$a])+intval($PT10[$a]))/30*100)/100*60),2)+
-                                       number_format(((intval($PSQA1[$a])/$HPS['psqa']*100)/100*20),2),0)+4
+                    <?php
+                        if($PSQA1[$a]==0 && $HPS['psqa']==0){
+                            $quartergrade = 0;
+                        }else{
+                            $quartergrade = number_format(number_format((((intval($W1[$a])+intval($W2[$a])+intval($W3[$a])+intval($W4[$a])+intval($W5[$a])+intval($W6[$a])+intval($W7[$a])+intval($W8[$a])+intval($W9[$a])+intval($W10[$a]))/30*100)/100*20),2)+ number_format((((intval($PT1[$a])+intval($PT2[$a])+intval($PT3[$a])+intval($PT4[$a])+intval($PT5[$a])+intval($PT6[$a])+intval($PT7[$a])+intval($PT8[$a])+intval($PT9[$a])+intval($PT10[$a]))/30*100)/100*60),2)+
+                                                          number_format(((intval($PSQA1[$a])/$HPS['psqa']*100)/100*20),2),0)+2;
+                        }
+                    ?>
+
+                    <td>
+                        <?php 
+                echo "<input style='border:none' type='text' size='1' name='quartergrade[]' value='$quartergrade'/>"
                         ?>
                     </td>
 
@@ -305,25 +336,53 @@ $HPS = gethps($schoolyear, $teacherid, $subject);
                     <td><?php echo "<input style='border:none' type='text' size='1' name='gpt7[]' value='$GPT7[$b]'/>"?></td>
                     <td><?php echo "<input style='border:none' type='text' size='1' name='gpt8[]' value='$GPT8[$b]'/>"?></td>
                     <td><?php echo "<input style='border:none' type='text' size='1' name='gpt9[]' value='$GPT9[$b]'/>"?></td>
-                    <td><?php echo "<input style='border:none' type='text' size='1' name='gpt10[]'value='$GPT10[$b]'/>"?></td>
+                    <td><?php echo "<input style='border:none' type='text' size='1' name='gpt10[]' value='$GPT10[$b]'/>"?></td>
                     <td><?php echo intval($GPT1[$b])+intval($GPT2[$b])+intval($GPT3[$b])+intval($GPT4[$b])+intval($GPT5[$b])+intval($GPT6[$b])+intval($GPT7[$b])+intval($GPT8[$b])+intval($GPT9[$b])+intval($GPT10[$b]) ?></td>
                     <td><?php echo number_format(((intval($GPT1[$b])+intval($GPT2[$b])+intval($GPT3[$b])+intval($GPT4[$b])+intval($GPT5[$b])+intval($GPT6[$b])+intval($GPT7[$b])+intval($GPT8[$b])+intval($GPT9[$b])+intval($GPT10[$b]))/30*100),2) ?></td>
                     <td><?php echo  number_format((((intval($GPT1[$b])+intval($GPT2[$b])+intval($GPT3[$b])+intval($GPT4[$b])+intval($GPT5[$b])+intval($GPT6[$b])+intval($GPT7[$b])+intval($GPT8[$b])+intval($GPT9[$b])+intval($GPT10[$b]))/30*100)/100*60),2) ?> 
                     </td>
                     <td><?php echo "<input style='border:none' type='text' size='1' name='gqa1[]' value='$GPSQA1[$b]'/>"?></td>
-                    <td><?php echo number_format((intval($GPSQA1[$b])/$HPS['psqa']*100),2) ?></td>
-                    <td><?php echo number_format(((intval($GPSQA1[$b])/$HPS['psqa']*100)/100*20),2) ?></td>
-                    <td><?php echo number_format((((intval($GW1[$b])+intval($GW2[$b])+intval($GW3[$b])+intval($GW4[$b])+intval($GW5[$b])+intval($GW6[$b])+intval($GW7[$b])+intval($GW8[$b])+intval($GW9[$b])+intval($GW10[$b]))/30*100)/100*20),2)+ number_format((((intval($GPT1[$b])+intval($GPT2[$b])+intval($GPT3[$b])+intval($GPT4[$b])+intval($GPT5[$b])+intval($GPT6[$b])+intval($GPT7[$b])+intval($GPT8[$b])+intval($GPT9[$b])+intval($GPT10[$b]))/30*100)/100*60),2)+
-                    number_format(((intval($GPSQA1[$b])/$HPS['psqa']*100)/100*20),2)
+                    <?php
+                    if($GPSQA1[$b]==0 && $HPS['psqa']==0){
+                        $ps1 = '';
+                    }else{
+                        $ps1 = number_format((intval($GPSQA1[$b])/$HPS['psqa']*100),2);
+                    }
+                    ?>
+                    <td><?php echo $ps1; ?></td>
+                    <?php 
+                    if($GPSQA1[$b]==0 && $HPS['psqa']==0){
+                        $ws1 = '';
+                    }else{
+                        $ws1 = number_format(((intval($GPSQA1[$b])/$HPS['psqa']*100)/100*20),2);
+                    }
+                    ?>
+                    <td><?php echo $ws1; ?></td>
+                    <?php
+                    if($HPS['psqa']==0){
+                        $initialgrade1 = 0;
+                    }else{
+                        $initialgrade1 = number_format((((intval($GW1[$b])+intval($GW2[$b])+intval($GW3[$b])+intval($GW4[$b])+intval($GW5[$b])+intval($GW6[$b])+intval($GW7[$b])+intval($GW8[$b])+intval($GW9[$b])+intval($GW10[$b]))/30*100)/100*20),2)+ number_format((((intval($GPT1[$b])+intval($GPT2[$b])+intval($GPT3[$b])+intval($GPT4[$b])+intval($GPT5[$b])+intval($GPT6[$b])+intval($GPT7[$b])+intval($GPT8[$b])+intval($GPT9[$b])+intval($GPT10[$b]))/30*100)/100*60),2)+
+                            number_format(((intval($GPSQA1[$b])/$HPS['psqa']*100)/100*20),2);
+                    }
+                    ?>
+                    <td><?php echo "<input style='border:none' type='text' size='1' name='initialgrade1[]' value='$initialgrade1'/>"
                         ?></td>
-                    <td><?php echo number_format(number_format((((intval($GW1[$b])+intval($GW2[$b])+intval($GW3[$b])+intval($GW4[$b])+intval($GW5[$b])+intval($GW6[$b])+intval($GW7[$b])+intval($GW8[$b])+intval($GW9[$b])+intval($GW10[$b]))/30*100)/100*20),2)+ number_format((((intval($GPT1[$b])+intval($GPT2[$b])+intval($GPT3[$b])+intval($GPT4[$b])+intval($GPT5[$b])+intval($GPT6[$b])+intval($GPT7[$b])+intval($GPT8[$b])+intval($GPT9[$b])+intval($GPT10[$b]))/30*100)/100*60),2)+
-                                                 number_format(((intval($GPSQA1[$b])/$HPS['psqa']*100)/100*20),2),0)+4
+                    <?php 
+                        if($HPS['psqa']==0){
+                            $quartergrade1 = 0;
+                        }else{
+                            $quartergrade1 = number_format(number_format((((intval($GW1[$b])+intval($GW2[$b])+intval($GW3[$b])+intval($GW4[$b])+intval($GW5[$b])+intval($GW6[$b])+intval($GW7[$b])+intval($GW8[$b])+intval($GW9[$b])+intval($GW10[$b]))/30*100)/100*20),2)+ number_format((((intval($GPT1[$b])+intval($GPT2[$b])+intval($GPT3[$b])+intval($GPT4[$b])+intval($GPT5[$b])+intval($GPT6[$b])+intval($GPT7[$b])+intval($GPT8[$b])+intval($GPT9[$b])+intval($GPT10[$b]))/30*100)/100*60),2)+
+                                                           number_format(((intval($GPSQA1[$b])/$HPS['psqa']*100)/100*20),2),0)+2;
+                        }
+                    ?>
+                    <td> 
+                        <?php echo "<input style='border:none' type='text' size='1' name='quartergrade1[]' value='$quartergrade1'/>"
                         ?></td>
-
                 </tr>
 
                 <?php
-                    $b++;
+                        $b++;
                 }
                 $conn->close();
                 ?>
