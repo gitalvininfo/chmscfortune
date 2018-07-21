@@ -48,7 +48,13 @@ require 'connection.php';
                                     <h3 class="panel-title">List of Students</h3>
                                     <div class="btn-group pull-right">
                                         <div class="pull-left">
-                                            <a href="principalviewclassrecord.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>" class="btn btn-primary btn-md">Go to Class Record</a>
+                                            <select class="btn btn-primary btn-md" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                                                <option value="">Select Grading</option>
+                                                <option value="principalviewclassrecord.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>&grading=1">1st Grading</option>
+                                                <option value="principalviewclassrecord.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>&grading=2">2nd Grading</option>
+                                                <option value="principalviewclassrecord.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>&grading=3">3rd Grading</option>
+                                                <option value="principalviewclassrecord.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>&grading=4">4th Grading</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -67,10 +73,10 @@ require 'connection.php';
                                         <tbody>
                                             <?php
     require 'connection.php';
-                                               $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]'") or die(mysqli_error());
-                                               while($fetch = $query->fetch_array()){
-                                                   $teacher_id = $fetch['teacher_id'];
-                                                   $subject_name = $fetch['subject_name'];
+                                                        $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]' && `sy` = '$_GET[school_year]'") or die(mysqli_error());
+                                                        while($fetch = $query->fetch_array()){
+                                                            $teacher_id = $fetch['teacher_id'];
+                                                            $subject_name = $fetch['subject_name'];
 
                                             ?>                                      
                                             <tr>
@@ -82,12 +88,12 @@ require 'connection.php';
                                                 <td><?php echo $fetch['status']?></td>
                                             </tr>
                                             <?php
-                                               }
+                                                        }
 
-                                               $conn->close();
+                                                        $conn->close();
                                             ?>
                                         </tbody>
-                                    </table>               
+                                    </table>            
                                 </div>
                             </div>
 
@@ -120,22 +126,6 @@ require 'connection.php';
         <script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>
         <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
         <script type='text/javascript' src='js/plugins/maskedinput/jquery.maskedinput.min.js'></script>
-        <script type="text/javascript">
-            $("#enrollform").validate({
-                ignore: [],
-                rules: {
-                    lrn: {
-                        required: true,
-                    },
-                    name: {
-                        required: true,
-                    },
-                    gender: {
-                        required: true,
-                    }
-                }
-            });
-        </script>
     </body>
 </html>
 

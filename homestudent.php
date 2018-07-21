@@ -16,6 +16,9 @@ require 'connection.php';
         <?php 
         $query = $conn->query("SELECT * FROM `enrollstudent` WHERE `lrn` = $_SESSION[lrn]") or die(mysqli_error());
         $find = $query->fetch_array();
+        $lrn = $find['lrn'];
+        $name = $find['name'];
+        echo $lrn;
         ?>
         <div class="page-container">
             <?php require 'require/studentsidebar.php'?>
@@ -51,13 +54,13 @@ require 'connection.php';
                                         <tbody>
                                             <?php
     require 'connection.php';
-            $query = $conn->query("select * from `test`, `enrollstudent` where enrollstudent.name = test.name  && enrollstudent.lrn = '$_SESSION[lrn]' group by test.subject_name") or die(mysqli_error());
+            $query = $conn->query("select * from `enrollstudent` where `name` = '$name' group by subject_name") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                                             ?>                                      
                                             <tr>
                                                 <td><?php echo $fetch['subject_name']?></td>
-                                                <td><?php echo $fetch['school_year']?></td>
-                                                <td><a href="studentscores.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>" class="btn btn-primary btn-sm">View Score</a></td>
+                                                <td><?php echo $fetch['sy']?></td>
+                                                <td><a href="studentscores.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>" class="btn btn-primary btn-sm">View Grades</a></td>
                                             </tr>
                                             <?php
             }

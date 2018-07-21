@@ -57,8 +57,7 @@ if(ISSET($_POST['submit'])){
     $w6 = $_POST["w6"];
     $w7 = $_POST["w7"];
     $w8 = $_POST["w8"];
-    $w9 = $_POST["w9"];
-    $w10 = $_POST["w10"];
+
     $gw1 = $_POST["gw1"];
     $gw2 = $_POST["gw2"];
     $gw3 = $_POST["gw3"];
@@ -67,8 +66,7 @@ if(ISSET($_POST['submit'])){
     $gw6 = $_POST["gw6"];
     $gw7 = $_POST["gw7"];
     $gw8 = $_POST["gw8"];
-    $gw9 = $_POST["gw9"];
-    $gw10 = $_POST["gw10"];
+
     $qa1 = $_POST["qa1"];
     $gqa1 = $_POST["gqa1"];
     $name = $_POST['name'];
@@ -237,26 +235,7 @@ if(ISSET($_POST['submit'])){
        $conn->query("UPDATE `test` SET `score` = '$value' WHERE `test`.`name` = '$new' && `test`.`school_year` = '$schoolyear' && `written_num` = 'w8' && `grading` = '$grading'") or die(mysqli_error());
            }
     }  
-     if(checkscore($schoolyear,$teacherid,$subject,'w9',$grading) == 'false' && checkexist($schoolyear, $teacherid, $subject, 'w9',$grading) == 'false'){
-     foreach(array_combine($name,$w9) as $new => $value){
-   
-       $conn->query("INSERT INTO `test` VALUES('', '$new', '$value', '$teacher_id', '$subject_name', '$school_year', 'w9',$grading)") or die(mysqli_error());
-    }
-       }else{  
-      foreach(array_combine($name,$w9) as $new => $value){
-       $conn->query("UPDATE `test` SET `score` = '$value' WHERE `test`.`name` = '$new' && `test`.`school_year` = '$schoolyear' && `written_num` = 'w9' && `grading` = '$grading'") or die(mysqli_error());
-           }
-    }
-     if(checkscore($schoolyear,$teacherid,$subject,'w10',$grading) == 'false' && checkexist($schoolyear, $teacherid, $subject, 'w10',$grading) == 'false'){
-     foreach(array_combine($name,$w10) as $new => $value){
-   
-       $conn->query("INSERT INTO `test` VALUES('', '$new', '$value', '$teacher_id', '$subject_name', '$school_year', 'w10',$grading)") or die(mysqli_error());
-    }
-         }else{  
-      foreach(array_combine($name,$w10) as $new => $value){
-       $conn->query("UPDATE `test` SET `score` = '$value' WHERE `test`.`name` = '$new' && `test`.`school_year` = '$schoolyear' && `written_num` = 'w10' && `grading` = '$grading'") or die(mysqli_error());
-           }
-    }   
+      
     if(checkscore($schoolyear,$teacherid,$subject,'qa1',$grading) == 'false' && checkexist($schoolyear, $teacherid, $subject, 'qa1',$grading) == 'false'){
      foreach(array_combine($name,$qa1) as $new => $value){
    
@@ -350,26 +329,8 @@ if(ISSET($_POST['submit'])){
        $conn->query("UPDATE `test` SET `score` = '$value' WHERE `test`.`name` = '$new' && `test`.`school_year` = '$schoolyear' && `written_num` = 'gw8' && `grading` = '$grading'") or die(mysqli_error());
            }
     }   
-     if(checkscore($schoolyear,$teacherid,$subject,'gw9',$grading) == 'false' && checkexist($schoolyear, $teacherid, $subject, 'gw9',$grading) == 'false'){
-     foreach(array_combine($gname,$gw9) as $new => $value){
-   
-       $conn->query("INSERT INTO `test` VALUES('', '$new', '$value', '$teacher_id', '$subject_name', '$school_year', 'gw9',$grading)") or die(mysqli_error());
-    }
-         }else{  
-      foreach(array_combine($gname,$gw9) as $new => $value){
-       $conn->query("UPDATE `test` SET `score` = '$value' WHERE `test`.`name` = '$new' && `test`.`school_year` = '$schoolyear' && `written_num` = 'gw9' && `grading` = '$grading'") or die(mysqli_error());
-           }
-    }  
-     if(checkscore($schoolyear,$teacherid,$subject,'gw10',$grading) == 'false' && checkexist($schoolyear, $teacherid, $subject, 'gw10',$grading) == 'false'){
-     foreach(array_combine($gname,$gw10) as $new => $value){
-   
-       $conn->query("INSERT INTO `test` VALUES('', '$new', '$value', '$teacher_id', '$subject_name', '$school_year', 'gw10',$grading)") or die(mysqli_error());
-    }
-         }else{  
-      foreach(array_combine($gname,$gw10) as $new => $value){
-       $conn->query("UPDATE `test` SET `score` = '$value' WHERE `test`.`name` = '$new' && `test`.`school_year` = '$schoolyear' && `written_num` = 'gw10' && `grading` = '$grading'") or die(mysqli_error());
-           }
-    }   
+ 
+     
     if(checkscore($schoolyear,$teacherid,$subject,'gqa1',$grading) == 'false' && checkexist($schoolyear, $teacherid, $subject, 'gqa1',$grading) == 'false'){
      foreach(array_combine($gname,$gqa1) as $new => $value){
    
@@ -390,8 +351,7 @@ if(ISSET($_POST['submit'])){
     $pt6 = $_POST["pt6"];
     $pt7 = $_POST["pt7"];
     $pt8 = $_POST["pt8"];
-    $pt9 = $_POST["pt9"];
-    $pt10 = $_POST["pt10"];
+
     $gpt1 = $_POST["gpt1"];
     $gpt2 = $_POST["gpt2"];
     $gpt3 = $_POST["gpt3"];
@@ -400,8 +360,7 @@ if(ISSET($_POST['submit'])){
     $gpt6 = $_POST["gpt6"];
     $gpt7 = $_POST["gpt7"];
     $gpt8 = $_POST["gpt8"];
-    $gpt9 = $_POST["gpt9"];
-    $gpt10 = $_POST["gpt10"];
+
    
       
     if(checkscore($schoolyear,$teacherid,$subject,'pt1',$grading) == 'false' && checkexist($schoolyear, $teacherid, $subject, 'pt1',$grading) == 'false'){
@@ -497,26 +456,8 @@ if(ISSET($_POST['submit'])){
        $conn->query("UPDATE `test` SET `score` = '$value' WHERE `test`.`name` = '$new' && `test`.`school_year` = '$schoolyear' && `written_num` = 'pt8' && `grading` = '$grading'") or die(mysqli_error());
            }
     }  
-     if(checkscore($schoolyear,$teacherid,$subject,'pt9',$grading) == 'false' && checkexist($schoolyear, $teacherid, $subject, 'pt9',$grading) == 'false'){
-     foreach(array_combine($name,$pt9) as $new => $value){
-   
-       $conn->query("INSERT INTO `test` VALUES('', '$new', '$value', '$teacher_id', '$subject_name', '$school_year', 'pt9',$grading)") or die(mysqli_error());
-    }
-       }else{  
-      foreach(array_combine($name,$pt9) as $new => $value){
-       $conn->query("UPDATE `test` SET `score` = '$value' WHERE `test`.`name` = '$new' && `test`.`school_year` = '$schoolyear' && `written_num` = 'pt9' && `grading` = '$grading'") or die(mysqli_error());
-           }
-    }
-     if(checkscore($schoolyear,$teacherid,$subject,'pt10',$grading) == 'false' && checkexist($schoolyear, $teacherid, $subject, 'pt10',$grading) == 'false'){
-     foreach(array_combine($name,$pt10) as $new => $value){
-   
-       $conn->query("INSERT INTO `test` VALUES('', '$new', '$value', '$teacher_id', '$subject_name', '$school_year', 'pt10',$grading)") or die(mysqli_error());
-    }
-         }else{  
-      foreach(array_combine($name,$pt10) as $new => $value){
-       $conn->query("UPDATE `test` SET `score` = '$value' WHERE `test`.`name` = '$new' && `test`.`school_year` = '$schoolyear' && `written_num` = 'pt10' && `grading` = '$grading'") or die(mysqli_error());
-           }
-    }   
+    
+    
 //////========================female
     if(checkscore($schoolyear,$teacherid,$subject,'gpt1',$grading) == 'false' && checkexist($schoolyear, $teacherid, $subject, 'gpt1',$grading) == 'false'){
     foreach(array_combine($gname,$gpt1) as $new => $value){
@@ -599,26 +540,8 @@ if(ISSET($_POST['submit'])){
        $conn->query("UPDATE `test` SET `score` = '$value' WHERE `test`.`name` = '$new' && `test`.`school_year` = '$schoolyear' && `written_num` = 'gpt8' && `grading` = '$grading'") or die(mysqli_error());
            }
     }   
-     if(checkscore($schoolyear,$teacherid,$subject,'gpt9',$grading) == 'false' && checkexist($schoolyear, $teacherid, $subject, 'gpt9',$grading) == 'false'){
-     foreach(array_combine($gname,$gpt9) as $new => $value){
-   
-       $conn->query("INSERT INTO `test` VALUES('', '$new', '$value', '$teacher_id', '$subject_name', '$school_year', 'gpt9',$grading)") or die(mysqli_error());
-    }
-         }else{  
-      foreach(array_combine($gname,$gpt9) as $new => $value){
-       $conn->query("UPDATE `test` SET `score` = '$value' WHERE `test`.`name` = '$new' && `test`.`school_year` = '$schoolyear' && `written_num` = 'gpt9' && `grading` = '$grading'") or die(mysqli_error());
-           }
-    }  
-     if(checkscore($schoolyear,$teacherid,$subject,'gpt10',$grading) == 'false' && checkexist($schoolyear, $teacherid, $subject, 'gpt10',$grading) == 'false'){
-     foreach(array_combine($gname,$gpt10) as $new => $value){
-   
-       $conn->query("INSERT INTO `test` VALUES('', '$new', '$value', '$teacher_id', '$subject_name', '$school_year', 'gpt10',$grading)") or die(mysqli_error());
-    }
-         }else{  
-      foreach(array_combine($gname,$gpt10) as $new => $value){
-       $conn->query("UPDATE `test` SET `score` = '$value' WHERE `test`.`name` = '$new' && `test`.`school_year` = '$schoolyear' && `written_num` = 'gpt10' && `grading` = '$grading'") or die(mysqli_error());
-           }
-    }
+     
+  
     
     
     $hpsw1 = $_POST["hpsw1"];
@@ -629,8 +552,7 @@ if(ISSET($_POST['submit'])){
     $hpsw6 = $_POST["hpsw6"];
     $hpsw7 = $_POST["hpsw7"];
     $hpsw8 = $_POST["hpsw8"];
-    $hpsw9 = $_POST["hpsw9"];
-    $hpsw10 = $_POST["hpsw10"];
+
     $hpsp1 = $_POST["hpsp1"];
     $hpsp2 = $_POST["hpsp2"];
     $hpsp3 = $_POST["hpsp3"];
@@ -639,8 +561,7 @@ if(ISSET($_POST['submit'])){
     $hpsp6 = $_POST["hpsp6"];
     $hpsp7 = $_POST["hpsp7"];
     $hpsp8 = $_POST["hpsp8"];
-    $hpsp9 = $_POST["hpsp9"];
-    $hpsp10 = $_POST["hpsp10"];
+
     $psqa = $_POST["psqa"];
     
     
@@ -652,12 +573,12 @@ if(ISSET($_POST['submit'])){
    
   
     if($check > 0){
-         $conn->query("UPDATE `highestpossiblescores` SET `hpsw1` = '$hpsw1', `hpsw2` = '$hpsw2', `hpsw3` = '$hpsw3', `hpsw4` = '$hpsw4', `hpsw5` = '$hpsw5', `hpsw6` = '$hpsw6', `hpsw7` = '$hpsw7', `hpsw8` = '$hpsw8', `hpsw9` = '$hpsw9', `hpsw10` = '$hpsw10', `hpsp1` = '$hpsp1', `hpsp2` = '$hpsp2', `hpsp3` = '$hpsp3', `hpsp4` = '$hpsp4', `hpsp5` = '$hpsp5', `hpsp6` = '$hpsp6', `hpsp7` = '$hpsp7', `hpsp8` = '$hpsp8', `hpsp9` = '$hpsp9', `hpsp10` = '$hpsp10', `psqa` = '$psqa' WHERE `highestpossiblescores`.`teacher_id` = 1 && `highestpossiblescores`.`subject_name` = '$subject_name' && `highestpossiblescores`.`school_year` = '$schoolyear' && `grading` = '$grading'") or die(mysqli_error());
+         $conn->query("UPDATE `highestpossiblescores` SET `hpsw1` = '$hpsw1', `hpsw2` = '$hpsw2', `hpsw3` = '$hpsw3', `hpsw4` = '$hpsw4', `hpsw5` = '$hpsw5', `hpsw6` = '$hpsw6', `hpsw7` = '$hpsw7', `hpsw8` = '$hpsw8', `hpsp1` = '$hpsp1', `hpsp2` = '$hpsp2', `hpsp3` = '$hpsp3', `hpsp4` = '$hpsp4', `hpsp5` = '$hpsp5', `hpsp6` = '$hpsp6', `hpsp7` = '$hpsp7', `hpsp8` = '$hpsp8', `psqa` = '$psqa' WHERE `highestpossiblescores`.`teacher_id` = 1 && `highestpossiblescores`.`subject_name` = '$subject_name' && `highestpossiblescores`.`school_year` = '$schoolyear' && `grading` = '$grading'") or die(mysqli_error());
          
     }
     else{
       
-         $conn->query("INSERT INTO `highestpossiblescores` VALUES ('', '$teacherid', '$subject_name', '$schoolyear', '$hpsw1', '$hpsw2', '$hpsw3', '$hpsw4', '$hpsw5', '$hpsw6', '$hpsw7', '$hpsw8', '$hpsw9', '$hpsw10', '$hpsp1', '$hpsp2', '$hpsp3', '$hpsp4', '$hpsp5', '$hpsp6', '$hpsp7', '$hpsp8', '$hpsp9', '$hpsp10', '$psqa' ,$grading);") or die(mysqli_error());
+         $conn->query("INSERT INTO `highestpossiblescores` VALUES ('', '$teacherid', '$subject_name', '$schoolyear', '$hpsw1', '$hpsw2', '$hpsw3', '$hpsw4', '$hpsw5', '$hpsw6', '$hpsw7', '$hpsw8', '$hpsp1', '$hpsp2', '$hpsp3', '$hpsp4', '$hpsp5', '$hpsp6', '$hpsp7', '$hpsp8', '$psqa' ,$grading);") or die(mysqli_error());
 
 
     }
@@ -668,8 +589,14 @@ if(ISSET($_POST['submit'])){
     
 
 }
-
-    echo "<script type='text/javascript'>alert('Successfully added new written works!');</script>";
+if($_POST['submit'] == 1){
+      echo "<script type='text/javascript'>alert('Successfully added new written works!');</script>";
+   echo "<script>document.location='../viewclassrecords.php?id=$teacher_id&subject_name=$subject_name&school_year=$school_year&grading=$grading'</script>";  
+}
+if($_POST['submit'] == 2){
+      echo "<script type='text/javascript'>alert('Successfully added new written works!');</script>";
    echo "<script>document.location='../studentslist.php?id=$teacher_id&subject_name=$subject_name&school_year=$school_year'</script>";  
+}
+ 
 
 ?>

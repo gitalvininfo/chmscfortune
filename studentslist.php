@@ -38,8 +38,10 @@ require 'connection.php';
                     <div class="row">
                         <div class="col-md-3">
                             <div class="panel panel-primary">
-                                <div class="panel-heading">      
+                                <div class="panel-heading">  
+
                                     <?php
+
     require 'connection.php';
             $query = $conn->query("SELECT * FROM `sub_assign` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]' && `sy` = '$_GET[school_year]'") or die(mysqli_error());
             $fetch = $query->fetch_array();    
@@ -52,7 +54,7 @@ require 'connection.php';
                                 <form id="enrollform" action="crud/addstudent.php" method="post" onsubmit="return confirm('Are you sure you want to add this student?');">
                                     <div class="panel-body">
                                         <div class="form-group">
-                                            <label>LRN</label>
+                                            <label>Learner Reference Number</label>
                                             <input type="hidden" class="form-control" name="teacher_id" value="<?php echo $_GET['id'];?>" required>
                                             <input type="hidden" class="form-control" name="subject_name" value="<?php echo $fetch['subject_name'];?>" required>
                                             <input type="hidden" class="form-control" name="grade" value="<?php echo $fetch['grade'];?>" required>
@@ -66,7 +68,7 @@ require 'connection.php';
                                             <input data-toggle="tooltip" data-placement="bottom" title="Student Name" type="text" class="form-control" name="name"  required/>
                                         </div>
 
-                                        <label>Gender</label>
+                                        <label>Sex</label>
                                         <div class="form-group ">
                                             <div class="col-md-12 col-xs-12">
                                                 <select class="form-control select" name="gender" required>
@@ -81,7 +83,6 @@ require 'connection.php';
                                             <div class="col-md-12 col-xs-12">
                                                 <select class="form-control select" name="status" required>
                                                     <option disabled selected>Choose</option>
-                                                    <option value="Regular">Regular</option>
                                                     <option value="Transferee">Transferee</option>
                                                     <option value="Returnee">Returnee</option>
                                                 </select>
@@ -102,7 +103,13 @@ require 'connection.php';
                                 <div class="btn-group pull-right">
                                     <div class="pull-left">
                                         <button class="btn btn-primary" data-toggle="modal" data-target="#retrieve">Retrieve Student</button>
-                                        <a href="viewclassrecords.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>&grading=1" class="btn btn-primary btn-md">Go to Class Record</a>
+                                        <select class="btn btn-primary btn-md" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                                            <option value="">Select Grading</option>
+                                            <option value="viewclassrecords.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>&grading=1">1st Grading</option>
+                                            <option value="viewclassrecords.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>&grading=2">2nd Grading</option>
+                                            <option value="viewclassrecords.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>&grading=3">3rd Grading</option>
+                                            <option value="viewclassrecords.php?id=<?php echo $fetch['teacher_id']?>&subject_name=<?php echo $fetch['subject_name']?>&school_year=<?php echo $fetch['sy']?>&grading=4">4th Grading</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +119,7 @@ require 'connection.php';
                                         <tr class="warning">
                                             <th>LRN</th>
                                             <th>Student Name</th>
-                                            <th>Gender</th>
+                                            <th>Sex</th>
                                             <th>Grade</th>
                                             <th>Section</th>
                                             <th>Status</th>
@@ -122,10 +129,10 @@ require 'connection.php';
                                     <tbody>
                                         <?php
     require 'connection.php';
-                                           $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_SESSION[user_id]' && `subject_name` = '$_GET[subject_name]' && `sy` = '$_GET[school_year]'order by `name` ASC") or die(mysqli_error());
-                                           while($fetch = $query->fetch_array()){
-                                               $teacher_id = $fetch['teacher_id'];
-                                               $subject_name = $fetch['subject_name'];
+                                                    $query = $conn->query("SELECT * FROM `enrollstudent` where `teacher_id` = '$_GET[id]' && `subject_name` = '$_GET[subject_name]' && `sy` = '$_GET[school_year]'") or die(mysqli_error());
+                                                    while($fetch = $query->fetch_array()){
+                                                        $teacher_id = $fetch['teacher_id'];
+                                                        $subject_name = $fetch['subject_name'];
 
                                         ?>                                      
                                         <tr>
@@ -140,9 +147,9 @@ require 'connection.php';
                                                 <a href="#deletestudent<?php echo $fetch['enroll_id'];?>" data-target="#deletestudent<?php echo $fetch['enroll_id'];?>" data-toggle="modal" class="btn btn-danger btn-sm">Delete</a></center></center>
                                     </tr>
                                 <?php
-                                           }
+                                                    }
 
-                                           $conn->close();
+                                                    $conn->close();
                                 ?>
                                 </tbody>
                             </table>               
@@ -281,7 +288,7 @@ while($fetch = $query->fetch_array()){
                                 <input data-toggle="tooltip" data-placement="bottom" title="Student Name" type="text" class="form-control" name="name" value="<?php echo $fetch['name']?>" required/>
                             </div>
 
-                            <label>Gender</label>
+                            <label>Sex</label>
                             <div class="form-group ">
                                 <div class="col-md-12 col-xs-12">
                                     <select class="form-control select" name="gender" required>

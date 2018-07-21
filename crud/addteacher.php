@@ -12,7 +12,7 @@ if(ISSET($_POST['addteacher'])){
 
     $conn = new mysqli("localhost", "root", "", "alijisclassrecord") or die(mysqli_error());
 
-    $q1 = $conn->query ("SELECT * FROM `tblteacher` WHERE BINARY `teacher_name` = '$name'") or die(mysqli_error());
+    $q1 = $conn->query ("SELECT * FROM `tblteacher` WHERE BINARY `teacher_name` = '$name' && `teacher_mid` = '$middle' && `teacher_last` = '$last'") or die(mysqli_error());
     $f1 = $q1->fetch_array();
     $check = $q1->num_rows;
     if($check > 0){
